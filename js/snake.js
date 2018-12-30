@@ -27,7 +27,7 @@ function init() {
     snakeBody = []
     length = 0
     dire = 2
-    for (var i = 0; i < 30; i++) {
+    for (var i = 0; i < 3; i++) {
         createSnakeNode(parseInt(cvsGirdX / 2) + i, parseInt(cvsGirdY / 2))
     }
     drawSnake()
@@ -87,7 +87,6 @@ function isGetFood(snakeHead) {
 
 function isCheckoutBorder(snakeHead) {
     if (snakeHead.x < 0 || snakeHead.x > cvsGirdX - 1 || snakeHead.y < 0 || snakeHead.y > cvsGirdY - 1) {
-
         gameOver()
     }
 }
