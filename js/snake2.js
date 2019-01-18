@@ -14,6 +14,7 @@ var snakeSize = 20,
 		length = 0,
 		dire = 2,
 		score = 0,
+		foodCount = 1,
 		food = {};
 		
 function init() {
@@ -31,7 +32,7 @@ function init() {
 
 function createSnakeNode(x,y) {
 
-	snakeBody.push({ x: x, y: y, color: length == 0 ? snakeHeadColor : snakeColor })
+	snakeBody.push({ x: parseInt(x), y: parseInt(y), color: length == 0 ? snakeHeadColor : snakeColor })
 	length++
 }
 
@@ -100,8 +101,12 @@ function putFood() {
 
 function isGetFood(snakeHead) {
 	if(food.x === snakeHead.x && food.y === snakeHead.y) {
-		putFood()
 		score++
+		for(var i=0; i<foodCount; i++) {
+			console.log('生成第'+i+'个食物')
+			putFood()
+		}
+		foodCount++
 		
 		// ???
 		snakeBody.push({x: snakeBody[snakeBody.length-1], y:snakeBody[snakeBody.length-1], color: snakeColor})
